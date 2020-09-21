@@ -2,23 +2,21 @@
   "name": "lowrise_web",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "yarn lint:js"
+    "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/style-resources": "^1.0.0",
+    "axios": "^0.20.0",
+    "contentful": "^7.14.6",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.5"
-  },
-  "devDependencies": {
-    "@nuxtjs/eslint-config": "^3.1.0",
-    "@nuxtjs/eslint-module": "^2.0.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.8.1",
-    "eslint-plugin-nuxt": "^1.0.0"
+    "dotenv": "^8.2.0",
+    "node-sass": "^4.14.1",
+    "nuxt": "^2.14.5",
+    "sass-loader": "^10.0.2"
   }
 }
