@@ -18,11 +18,6 @@ $width-site: 1000px;
   }
 }
 
-body {
-  font-family: 'proxima-nova', sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
 a {
   text-decoration: none;
   color: inherit;
@@ -40,10 +35,6 @@ a {
 p {
   line-height: 22px;
   font-size: 15px;
-}
-
-.font-sc {
-  font-family: "proxima-nova-sc-osf", sans-serif;
 }
 
 input, textarea, button {

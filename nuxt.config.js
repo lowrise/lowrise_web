@@ -8,14 +8,15 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap' }
     ]
   },
   css: [
-    // './assets/styles/index'
+    '@/assets/styles/index'
   ],
   styleResources: {
-    scss: ['./assets/styles/index.scss'],
+    scss: ['@/assets/styles/index.scss'],
   },
   plugins: [
   ],
