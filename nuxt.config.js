@@ -1,4 +1,8 @@
 export default {
+  env: {
+    CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
+    CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
+  },
   target: 'static',
   head: {
     title: 'lowrise_web',
@@ -13,12 +17,13 @@ export default {
     ]
   },
   css: [
-    '@/assets/styles/index'
+    '@/assets/styles/index',
   ],
   styleResources: {
     scss: ['@/assets/styles/index.scss'],
   },
   plugins: [
+    '@/plugins/contentful',
   ],
   components: true,
   buildModules: [
