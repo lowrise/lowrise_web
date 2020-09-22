@@ -4,9 +4,6 @@ export default {
     CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
   },
   target: 'static',
-  router: {
-    base: '/lowrise_web/'
-  },
   head: {
     title: 'lowrise_web',
     meta: [
