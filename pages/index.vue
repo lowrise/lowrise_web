@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main :class="$style.container">
     <div class="hero js-section">
       <div class="img-hero" />
     </div>
@@ -85,5 +85,96 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style module lang='scss'>
+.index
+  .center
+    position: absolute
+    width: 200px
+    height: 200px
+    top: 50%
+    left: 50%
+    margin: -100px 0 0 -100px
+    .logo
+      background: image-url('assets/logo.svg')
+      width: 198px
+      height: 32px
+      margin: 0 auto
+    .text
+      text-align: center
+      margin-top: 40px
+      color: rgb(80,80,80)
+      line-height: 1.6
+
+.hero
+  background: black
+
+.img-hero
+  background: image-url('images/hero.jpg')
+  background-size: cover
+  background-position: 50% 50%
+  height: 100px
+  width: 100%
+
+.page-home
+  background: $color-page-bg
+  padding: 80px 0 80px
+
+  .type
+    color: $color-secondary
+    font-size: 13px
+    text-transform: capitalize
+    padding-top: 2px
+
+.section
+  @extend .width-site
+  padding-bottom: 60px
+  overflow: auto
+  padding: 0 60px
+  max-width: 1120px
+  margin-bottom: 120px
+
+.section-title
+  clear: both
+  margin-bottom: 36px
+  font-size: 24px
+  font-weight: 600
+
+.practise
+  .grid-three-item
+    float: left
+
+.table-contact
+  margin-bottom: 100px
+  tr
+    padding-bottom: 20px
+    border-bottom: 1px solid $color-tertiary
+    td
+      line-height: 26px
+      vertical-align: top
+      width: 32%
+      padding: 40px 0
+    td:first-child
+      color: $color-secondary
+      text-transform: uppercase
+      border-spacing: 10px
+      font-size: 13px
+      letter-spacing: 2.4px
+    &:last-of-type
+      border-bottom: none
+  input, textarea
+    float: left
+    width: 100%
+    margin-bottom: 12px
+    background: none
+  input
+    padding: 0 20px 14px 0
+    border-bottom: 1px solid #E0DFDE
+    &:focus
+      border-bottom: 1px solid $color-primary
+  textarea
+    padding: 10px 18px 20px 0
+    resize: none
+  button
+    background: none
+
 </style>
