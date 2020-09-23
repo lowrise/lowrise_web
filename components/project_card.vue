@@ -1,19 +1,25 @@
 <template>
-  <div :class="$style.container">
+  <nuxt-link
+    :class="$style.container"
+    :to="`/projects/${project.fields.slug}`"
+  >
     <div :class="$style.cover" />
     <div :class="$style.imgProjectProfile">
-      <img />
+      <img :src="`${project.fields.hero.fields.file.url}?w=600`" />
     </div>
-    <div :class="$style.title">Title</div>
-    <div :class="$style.type">Type</div>
-  </div>
+    <div :class="$style.title">{{ project.fields.title }}</div>
+    <div :class="$style.type">{{ project.fields.type }}</div>
+  </nuxt-link>
 </template>
 
 <script>
 import Vue from 'vue'
 
 export default Vue.extend({
-
+  name: 'project-card',
+  props: {
+    project: Object,
+  },
 })
 </script>
 

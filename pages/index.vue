@@ -14,7 +14,11 @@
         <div :class="$style.sectionTitle">Residential Work</div>
         <div :class="$style.grid" class="width-site">
           <div :class="$style.gridThreeItem">
-            <project-card />
+            <project-card
+              v-for="project in residentialProjects"
+              :key="project.sys.id"
+              :project="project"
+            />
           </div>
         </div>
       </div>
@@ -23,7 +27,11 @@
         <div :class="$style.sectionTitle">Commerical Work</div>
         <div :class="$style.grid" class="width-site">
           <div :class="$style.gridThreeItem">
-            <project-card />
+            <project-card
+              v-for="project in commericalProjects"
+              :key="project.sys.id"
+              :project="project"
+            />
           </div>
         </div>
       </div>
@@ -85,6 +93,14 @@ export default Vue.extend({
       heroImage: null,
       practiceDescription: null,
     }
+  },
+  computed: {
+    residentialProjects() {
+      return this.projects.filter(project => project.fields.type === 'Residential')
+    },
+    commericalProjects() {
+      return this.projects.filter(project => project.fields.type === 'Commerical')
+    },
   },
   methods: { documentToHtmlString },
   async asyncData(context) {
