@@ -31,11 +31,10 @@
       <div :class="$style.section" class="width-site" id="practise">
         <div :class="$style.sectionTitle">Practise</div>
         <div :class="$style.grid" class="width-site">
-          <div :class="$style.gridThreeItem">
-            <p>We are a small architectural design company based in Dunedin, New Zealand. We are licensed Building Practioners (D2 design license), and as our name suggests, we focus on low rise projects to 3 levels or 10 meters in height. We have extensive experience in residential and commercial new builds, renovations, fit-outs and historic re-use of existing structures.</p>
-            <p>We are committed to a collaborative design process that is client centred, focused on ensuring our clients’ needs and aspirations are listened to and realised. You are assured of a personalised service throughout, and will deal with the same person from concept through to built design.</p>
-            <p>We believe in calm, uncluttered design that responds directly to client needs, to site and to place. We achieve unique design solutions that achieve maximum value for clients and improve the quality of their lives.</p>
-          </div>
+          <div
+            :class="$style.gridThreeItem"
+            v-html="documentToHtmlString(practiceDescription)"
+          />
         </div>
       </div>
 
@@ -73,7 +72,8 @@
 import Vue from 'vue'
 import ProjectCard from '@/components/project_card'
 import _ from 'lodash'
-// import contentfulClient from '@/lib/contentful'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+const util = require('util')
 
 export default Vue.extend({
   components: {
@@ -86,6 +86,7 @@ export default Vue.extend({
       practiceDescription: null,
     }
   },
+  methods: { documentToHtmlString },
   async asyncData(context) {
     const projects = await context.$contentful.getEntries({ content_type: 'project' })
     const homePage = await context.$contentful.getEntries({ content_type: 'homePage' })
@@ -93,7 +94,7 @@ export default Vue.extend({
     return {
       projects: projects.items,
       heroImage: homePage.items[0].fields.heroImage.fields,
-      practiceDescription: homePage.items[0].fields.practiceDescription.content,
+      practiceDescription: homePage.items[0].fields.practiceDescription,
     }
   }
 })

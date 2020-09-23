@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
+  "engines": {
+    "node": ">=12.18.4"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -10,6 +13,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "^14.1.1",
     "@nuxtjs/style-resources": "^1.0.0",
     "axios": "^0.20.0",
     "contentful": "^7.14.6",
