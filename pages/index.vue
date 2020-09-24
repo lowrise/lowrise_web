@@ -4,7 +4,7 @@
       <div
         :class="$style.heroImage"
         :style="{
-          background: `url('${ heroImage.file.url }')`
+          'background-image': `url('${ heroImage.file.url }')`
         }"
       />
     </div>
@@ -148,7 +148,7 @@ export default Vue.extend({
 .heroImage {
   background-size: cover;
   background-position: 50% 50%;
-  height: 100px;
+  height: 700px;
   width: 100%;
 }
 
