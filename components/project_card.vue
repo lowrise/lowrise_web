@@ -3,12 +3,14 @@
     :class="$style.container"
     :to="`/projects/${project.fields.slug}`"
   >
-    <div :class="$style.cover" />
-    <div :class="$style.imgProjectProfile">
-      <img :src="`${project.fields.hero.fields.file.url}?w=600`" />
-    </div>
+    <div
+      v-if="project.fields.hero"
+      :class="$style.thumbnail"
+      :style="{
+        backgroundImage: `url(${project.fields.hero.fields.file.url}?w=600)`
+      }"
+    />
     <div :class="$style.title">{{ project.fields.title }}</div>
-    <div :class="$style.type">{{ project.fields.type }}</div>
   </nuxt-link>
 </template>
 
@@ -28,35 +30,35 @@ export default Vue.extend({
 
 .container {
   width: 100%;
-  height: 170px;
-  overflow: hidden;
+  position: relative;
 
   &:hover {
-    .cover {
-      opacity: 0.42;
+    .title {
+      color: $color-link;
     }
   }
+}
 
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-  }
+.thumbnail {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  margin-bottom: 16px;
 }
 
 .title {
   text-transform: uppercase;
   letter-spacing: 2.9px;
-  font-size: 15px;
-  padding-top: 13px;
+  font-size: 14px;
+  margin-bottom: 13px;
+  color: $color-primary;
+  transition: 150ms all;
 }
 
 .subtitle {
   text-transform: uppercase;
-  letter-spacing: 2.9px;
-  font-size: 15px;
-  padding-top: 13px;
+  letter-spacing: 1.5px;
+  font-size: 12px;
   color: $color-secondary;
 }
 </style>

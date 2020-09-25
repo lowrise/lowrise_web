@@ -13,34 +13,30 @@
       <div :class="$style.section" class="width-site" id="residential">
         <div :class="$style.sectionTitle">Residential Work</div>
         <div :class="$style.grid" class="width-site">
-          <div :class="$style.gridThreeItem">
-            <project-card
-              v-for="project in residentialProjects"
-              :key="project.sys.id"
-              :project="project"
-            />
-          </div>
+          <project-card
+            v-for="project in residentialProjects"
+            :key="project.sys.id"
+            :project="project"
+          />
         </div>
       </div>
 
       <div :class="$style.section" class="width-site" id="commerical">
         <div :class="$style.sectionTitle">Commerical Work</div>
         <div :class="$style.grid" class="width-site">
-          <div :class="$style.gridThreeItem">
-            <project-card
-              v-for="project in commericalProjects"
-              :key="project.sys.id"
-              :project="project"
-            />
-          </div>
+          <project-card
+            v-for="project in commericalProjects"
+            :key="project.sys.id"
+            :project="project"
+          />
         </div>
       </div>
 
       <div :class="$style.section" class="width-site" id="practise">
         <div :class="$style.sectionTitle">Practise</div>
-        <div :class="$style.grid" class="width-site">
+        <div class="width-site">
           <div
-            :class="$style.gridThreeItem"
+            :class="$style.practiceDescription"
             v-html="documentToHtmlString(practiceDescription)"
           />
         </div>
@@ -169,7 +165,6 @@ export default Vue.extend({
 
 .section {
   padding-bottom: 60px;
-  overflow: auto;
   padding: 0 60px;
   max-width: 1120px;
   margin-bottom: 120px;
@@ -186,24 +181,18 @@ export default Vue.extend({
 // Grid
 
 .grid {
-
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 40px 30px;
 }
 
-.gridThreeItem {
-  width: 32%;
-  margin: 0 2% 40px 0;
-  float: left;
-  position: relative;
 
-  &.last {
-    margin-right: 0;
-  }
-}
 
-.practise {
-  .grid-three-item {
-    float: left;
-  }
+// Practice Description
+
+.practiceDescription {
+  column-count: 2;
+  column-width: 250px;
 }
 
 
