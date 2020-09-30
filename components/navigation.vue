@@ -1,11 +1,11 @@
 <template>
   <div :class="$style.container">
     <div class="width-site">
-      <div :class="$style.logo" />
-      <div :class="$style.link">contact</div>
-      <div :class="$style.link">practise</div>
-      <div :class="$style.link">commercial</div>
-      <div :class="$style.link">residential</div>
+      <a href="/" :class="$style.logo" />
+      <a href="/#contact" :class="$style.link">contact</a>
+      <a href="/#practise" :class="$style.link">practise</a>
+      <a href="/#commerical" :class="$style.link">commercial</a>
+      <a href="/#residential" :class="$style.link">residential</a>
     </div>
   </div>
 </template>

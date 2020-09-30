@@ -1,24 +1,40 @@
 <template>
-  <div :class="$style.container" class="width-full">
-    <div :class="$style.topContainer" class="width-site">
-      <div :class="$style.projectInfo">
-        <div :class="$style.projectInfoTitle">project.title</div>
-        <div :class="$style.projectInfoType">project.type</div>
-        <div :class="$style.projectInfoDescription">project.description</div>
-        <nuxt-link :class="$style.backButton" to="/">
-          <div :class="$style.backButtonIcon" />
-          Back to all projects
-        </nuxt-link>
+  <div :class="$style.container">
+    <div :class="$style.projectPage" class="width-full">
+      <div :class="$style.topContainer" class="width-site">
+        <div :class="$style.projectInfo">
+          <div :class="$style.projectInfoTitle">{{ project.fields.title }}</div>
+          <div :class="$style.projectInfoType">{{ project.fields.type }}</div>
+          <div v-html="documentToHtmlString(project.fields.description)" :class="$style.projectInfoDescription" />
+          <nuxt-link :class="$style.backButton" to="/">
+            <div :class="$style.backButtonIcon" />
+            Back to all projects
+          </nuxt-link>
+        </div>
+        <img :class="$style.projectInfoImage" :src="project.fields.hero.fields.file.url"/>
+        <div class="clear">
       </div>
-      <img :class="style.projectInfoImage" src="xxx"/>
-      <div class="clear">
     </div>
 
-    <div :class="$style.imageContainer">Images</div>
+    <div :class="$style.imageContainer">
+      <div
+        v-for="projectImage in project.fields.images"
+        :key="projectImage.sys.id"
+        :class="$style.projectImage"
+      >
+        <img class="width-site" :src="projectImage.fields.file.url" />
+      </div>
+    </div>
+  </div>
 
-    <div :class="$style.footer">
-      <div :class="$style.footerLeft">Get in touch</div>
-      <div :class="$style.footerRight">Next project</div>
+  <div :class="$style.footer" class="width-site">
+    <div :class="[$style.footerBlock, $style.footerBlockLeft]">
+      <div :class="$style.element">
+        <a :class="$style.footerButton" href="/#contact">Get in touch</a>
+      </div>
+    </div>
+    <div :class="[$style.footerBlock, $style.footerBlockRight]">
+      <div :class="$style.element"></div>
     </div>
   </div>
 </div>
@@ -26,9 +42,24 @@
 
 <script>
 import Vue from 'vue'
+import _ from 'lodash'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 export default Vue.extend({
+  data() {
+    return {
+      project: null,
+    }
+  },
+  methods: { documentToHtmlString },
+  async asyncData(context) {
+    const projects = await context.$contentful.getEntries({ content_type: 'project' })
+    const slug = context.route.params.id
 
+    return {
+      project: projects.items.filter(project => project.fields.slug === slug)[0],
+    }
+  }
 })
 </script>
 
@@ -36,6 +67,10 @@ export default Vue.extend({
 @import '@/assets/styles/index.scss';
 
 .container {
+
+}
+
+.projectPage {
   background: $color-page-bg;
   margin-bottom: 270px;
   padding: 80px 0 100px;
@@ -43,6 +78,9 @@ export default Vue.extend({
   position: relative;
   box-shadow: 0 1px 6px rgba(0,0,0,0.10);
 }
+
+
+// Header
 
 .topContainer {
   padding: 100px 0 160px;
@@ -55,13 +93,13 @@ export default Vue.extend({
 }
 
 .projectInfoTitle {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 600;
   line-height: 40px;
 }
 
 .projectInfoType {
-  padding: 16px 0 0;
+  padding: 15px 0 0;
   text-transform: uppercase;
   color: #96918d;
   letter-spacing: 2px;
@@ -69,10 +107,36 @@ export default Vue.extend({
 }
 
 .projectInfoDescription {
-  padding-top: 18px;
+  padding-top: 14px;
   padding-bottom: 32px;
   margin: 0;
 }
+
+.backButton {
+  color: $color-link;
+  font-weight: 600;
+  font-size: 15px;
+  position: relative;
+
+  &:hover {
+    .backButtonIcon {
+      transform: translateX(-2px);
+    }
+  }
+}
+
+.backButtonIcon {
+  background: url('~assets/images/arrow-left.svg') 0 0 / 11px 12px;
+  width: 11px;
+  height: 12px;
+  position: absolute;
+  left: -17px;
+  top: 4px;
+  transition: 100ms all;
+}
+
+
+// Main
 
 .projectInfoImage {
   width: 65%;
@@ -120,39 +184,57 @@ export default Vue.extend({
   background: white;
 }
 
-// .block
-//   float: left
-//   width: 50%
-//   height: 150px
-//   padding: 0 40px
-//   img
-//     float: left
-//     height: 100%
-//   .btn:hover
-//     color: #448EB5
-//     .arrow-right
-//       transform: translateX(4px)
-//   .project-footer-subtitle
-//     float: left
-//     font-size: 15px
-//     color: $color-secondary
-//     clear: both
-//   &.left
-//     border-right: 1px solid rgb(242,242,242)
-//     .btn-big
-//       line-height: 150px
-//       float: right
+.footerBlock {
+  float: left;
+  width: 50%;
+  height: 150px;
+  padding: 0 40px;
 
-//   &.right
-//     .element
-//       position: absolute
-//       top: 50%
-//     .inner
-//       height: 62px
-//       position: relative
-//       top: -32px
-//       .btn-big
-//         margin: 5px 0 0 28px
+  img {
+    float: left;
+    height: 100%;
+  }
+
+  .btn:hover {
+    color: #448EB5;
+    .arrow-right {
+      transform: translateX(4px);
+    }
+  }
+
+  .project-footer-subtitle {
+    float: left;
+    font-size: 15px;
+    color: $color-secondary;
+    clear: both;
+  }
+}
+
+.footerBlockleft {
+  border-right: 1px solid rgb(242,242,242);
+
+  .btn-big {
+    line-height: 150px;
+    float: right;
+  }
+}
+
+.footerBlockRight {
+  .element {
+    position: absolute;
+    top: 50%;
+  }
+
+  .inner {
+    height: 62px;
+    position: relative;
+    top: -32px;
+
+    .btn-big {
+      margin: 5px 0 0 28px;
+    }
+  }
+}
 
 @media (max-width: 1000px) {
   .container {

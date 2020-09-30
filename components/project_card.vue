@@ -52,7 +52,7 @@ export default Vue.extend({
   font-size: 14px;
   margin-bottom: 13px;
   color: $color-primary;
-  transition: 150ms all;
+  transition: 100ms all;
 }
 
 .subtitle {
