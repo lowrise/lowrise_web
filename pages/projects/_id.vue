@@ -75,7 +75,7 @@ export default Vue.extend({
 .projectPage {
   background: $color-page-bg;
   margin-bottom: 270px;
-  padding: 80px 0 100px;
+  padding: 80px 30px 100px;
   z-index: 200;
   position: relative;
   box-shadow: 0 1px 6px rgba(0,0,0,0.10);

@@ -10,7 +10,7 @@
   max-width: $width-site;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: $mobile) {
   .width-full {
     padding: 0 40px;
   }
