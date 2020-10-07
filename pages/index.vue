@@ -25,7 +25,7 @@
         <div :class="$style.sectionTitle">Commerical Work</div>
         <div :class="$style.grid" class="width-site">
           <project-card
-            v-for="project in commericalProjects"
+            v-for="project in commercialProjects"
             :key="project.sys.id"
             :project="project"
           />
@@ -90,22 +90,15 @@ export default Vue.extend({
       practiceDescription: null,
     }
   },
-  computed: {
-    residentialProjects() {
-      return this.projects.filter(project => project.fields.type === 'Residential')
-    },
-    commericalProjects() {
-      return this.projects.filter(project => project.fields.type === 'Commerical')
-    },
-  },
   methods: { documentToHtmlString },
   async asyncData(context) {
-    const projects = await context.$contentful.getEntries({ content_type: 'project' })
     const homePage = await context.$contentful.getEntries({ content_type: 'homePage' })
+    const fields = homePage.items[0].fields
 
     return {
-      projects: projects.items,
       heroImage: homePage.items[0].fields.heroImage.fields,
+      residentialProjects: fields.residentialProjects,
+      commercialProjects: fields.commercialProjects,
       practiceDescription: homePage.items[0].fields.practiceDescription,
     }
   }
@@ -117,23 +110,6 @@ export default Vue.extend({
 
 .container {
 }
-// .center
-//   position: absolute
-//   width: 200px
-//   height: 200px
-//   top: 50%
-//   left: 50%
-//   margin: -100px 0 0 -100px
-//   .logo
-//     background: image-url('assets/logo.svg')
-//     width: 198px
-//     height: 32px
-//     margin: 0 auto
-//   .text
-//     text-align: center
-//     margin-top: 40px
-//     color: rgb(80,80,80)
-//     line-height: 1.6
 
 // Hero
 
@@ -146,6 +122,10 @@ export default Vue.extend({
   background-position: 50% 50%;
   height: 700px;
   width: 100%;
+
+  @media (max-width: $mobile) {
+    height: 500px;
+  }
 }
 
 .page {
@@ -168,6 +148,10 @@ export default Vue.extend({
   padding: 0 60px;
   max-width: 1120px;
   margin-bottom: 120px;
+
+  @media (max-width: $mobile) {
+    padding: 0 20px;
+  }
 }
 
 .sectionTitle {
@@ -184,6 +168,10 @@ export default Vue.extend({
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 40px 30px;
+
+  @media (max-width: $mobile) {
+    grid-gap: 20px 10px;
+  }
 }
 
 

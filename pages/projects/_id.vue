@@ -2,6 +2,7 @@
   <div :class="$style.container">
     <div :class="$style.projectPage" class="width-full">
       <div :class="$style.topContainer" class="width-site">
+        <img :class="$style.projectInfoImage" :src="project.fields.hero.fields.file.url"/>
         <div :class="$style.projectInfo">
           <div :class="$style.projectInfoTitle">{{ project.fields.title }}</div>
           <div :class="$style.projectInfoType">{{ project.fields.type }}</div>
@@ -11,7 +12,6 @@
             Back to all projects
           </nuxt-link>
         </div>
-        <img :class="$style.projectInfoImage" :src="project.fields.hero.fields.file.url"/>
         <div class="clear">
       </div>
     </div>
@@ -67,7 +67,9 @@ export default Vue.extend({
 @import '@/assets/styles/index.scss';
 
 .container {
-
+  @media (max-width: $mobile) {
+    padding: 0 20px;
+  }
 }
 
 .projectPage {
@@ -77,25 +79,41 @@ export default Vue.extend({
   z-index: 200;
   position: relative;
   box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+
+  @media (max-width: $mobile) {
+    padding: 0;
+  }
 }
 
 
 // Header
 
 .topContainer {
-  padding: 100px 0 160px;
+  padding: 60px 0 160px;
+
+  @media (max-width: $mobile) {
+    padding: 40px 20px 0;
+  }
 }
 
 .projectInfo {
   float: left;
   width: 30%;
   margin-right: 5%;
+
+  @media (max-width: $mobile) {
+    width: 100%;
+  }
 }
 
 .projectInfoTitle {
   font-size: 36px;
   font-weight: 600;
   line-height: 40px;
+
+  @media (max-width: $mobile) {
+    font-size: 26px;
+  }
 }
 
 .projectInfoType {
@@ -104,12 +122,33 @@ export default Vue.extend({
   color: #96918d;
   letter-spacing: 2px;
   font-size: 13px;
+
+  @media (max-width: $mobile) {
+    font-size: 12px;
+  }
 }
 
 .projectInfoDescription {
   padding-top: 14px;
   padding-bottom: 32px;
   margin: 0;
+
+  @media (max-width: $mobile) {
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+.projectInfoImage {
+  width: 65%;
+  float: right;
+
+  @media (max-width: $mobile) {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+  }
 }
 
 .backButton {
@@ -138,9 +177,10 @@ export default Vue.extend({
 
 // Main
 
-.projectInfoImage {
-  width: 65%;
-  float: right;
+.imageContainer {
+  @media (max-width: $mobile) {
+    padding: 40px 20px 0;
+  }
 }
 
 .projectImage {
@@ -236,9 +276,9 @@ export default Vue.extend({
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: $mobile) {
   .container {
-    padding: 80px 60px 80px;
+    padding: 0 0 0;
   }
 }
 </style>

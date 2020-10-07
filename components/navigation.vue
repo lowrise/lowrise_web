@@ -3,9 +3,9 @@
     <div class="width-site">
       <a href="/" :class="$style.logo" />
       <a href="/#contact" :class="$style.link">contact</a>
-      <a href="/#practise" :class="$style.link">practise</a>
-      <a href="/#commerical" :class="$style.link">commercial</a>
-      <a href="/#residential" :class="$style.link">residential</a>
+      <a href="/#practise" :class="[$style.link, $style.hideOnMobile]">practise</a>
+      <a href="/#commerical" :class="[$style.link, $style.hideOnMobile]">commercial</a>
+      <a href="/#residential" :class="[$style.link, $style.hideOnMobile]">residential</a>
     </div>
   </div>
 </template>
@@ -31,6 +31,7 @@ export default Vue.extend({
   z-index: 400;
   position: fixed;
   top: 0;
+  padding: 0 10px;
 }
 
 .logo {
@@ -64,6 +65,21 @@ export default Vue.extend({
     padding-bottom: 6px;
     position: relative;
     bottom: 2px;
+  }
+}
+
+@media (max-width: $mobile) {
+  .container {
+    padding-right: 20px;
+  }
+
+  .link {
+    position: relative;
+    top: 2px;
+  }
+
+  .link.hideOnMobile {
+    display: none;
   }
 }
 </style>
