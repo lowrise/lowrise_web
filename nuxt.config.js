@@ -25,8 +25,12 @@ export default {
   plugins: [
     '@/plugins/contentful',
   ],
+  googleAnalytics: {
+    id: 'UA-62754576-1',
+  },
   components: true,
   buildModules: [
+    '@nuxtjs/google-analytics',
   ],
   modules: [
   ],
