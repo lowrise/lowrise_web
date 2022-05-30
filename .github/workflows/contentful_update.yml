@@ -7,6 +7,11 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
+      - uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          name: id_rsa
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
       - uses: actions/checkout@v2
 
       - name: Setup Node
@@ -36,4 +41,3 @@ jobs:
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: dist
-
