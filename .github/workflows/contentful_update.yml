@@ -1,7 +1,7 @@
 name: New Contentful Data
 on:
   repository_dispatch:
-    types: [publish-event]
+    types: [contentful.deploy]
 
 jobs:
   deploy:

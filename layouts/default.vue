@@ -17,6 +17,11 @@ export default Vue.extend({
   components: {
     Navigation,
   },
+  head() {
+    return {
+      title: 'Lowrise',
+    }
+  },
 })
 </script>
 

@@ -51,6 +51,13 @@ export default Vue.extend({
       project: null,
     }
   },
+  head() {
+    if (this.project && this.project.fields.title) {
+      return {
+        title: `Lowrise – ${this.project.fields.title}`,
+      }
+    }
+  },
   methods: { documentToHtmlString },
   async asyncData(context) {
     const projects = await context.$contentful.getEntries({ content_type: 'project' })
