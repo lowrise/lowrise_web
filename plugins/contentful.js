@@ -9,3 +9,4 @@ export default (context, inject) => {
   inject('contentful', client)
   context.$contentful = client
 }
+//
