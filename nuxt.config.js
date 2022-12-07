@@ -23,17 +23,11 @@ export default {
     scss: ['@/assets/styles/index.scss'],
   },
   plugins: [
+    '@/plugins/gtag',
     '@/plugins/contentful',
   ],
-  googleAnalytics: {
-    id: 'UA-62754576-1',
-  },
   components: true,
-  buildModules: [
-    '@nuxtjs/google-analytics',
-  ],
-  modules: [
-  ],
+  modules: [],
   build: {
     publicPath: '/_static/',
     extractCSS: true,
