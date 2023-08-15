@@ -57,11 +57,9 @@
               <tr>
                 <td>Visit us</td>
                 <td>
-                  19 Claremont Street
+                  56 Heriot Row
                   <br />
-                  Maori Hill
-                  <br />
-                  Dunedin 9010
+                  Dunedin 9016
                 </td>
               </tr>
             </tbody>
