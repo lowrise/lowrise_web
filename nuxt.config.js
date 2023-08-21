@@ -31,6 +31,9 @@ export default {
   build: {
     publicPath: '/_static/',
     extractCSS: true,
+    sassOptions: {
+      fiber: false,
+    },
     loaders: {
       cssModules: {
         modules: {

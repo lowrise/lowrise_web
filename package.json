@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
-  "engines": {
-    "node": ">=12.18.4"
-  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -13,18 +10,20 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@contentful/rich-text-html-renderer": "^14.1.1",
-    "@nuxtjs/style-resources": "^1.0.0",
-    "@vue/shared": "^3.2.45",
-    "axios": "^0.20.0",
-    "contentful": "^7.14.6",
-    "core-js": "^3.6.5",
-    "dotenv": "^8.2.0",
+    "@contentful/rich-text-html-renderer": "14.1.1",
+    "@nuxtjs/style-resources": "^1.2.1",
+    "@vue/shared": "^3.3.4",
+    "axios": "^1.4.0",
+    "contentful": "7.14.6",
+    "core-js": "^3.32.1",
+    "dotenv": "^16.3.1",
+    "fibers": "^5.0.3",
     "fs": "^0.0.1-security",
-    "lodash": "^4.17.20",
-    "node-sass": "^8.0.0",
+    "lodash": "^4.17.21",
+    "node-sass": "8.0.0",
     "nuxt": "^2.14.5",
+    "sass": "^1.66.1",
     "sass-loader": "10",
-    "vue-gtag": "^1.16.1"
+    "vue-gtag": "1.16.1"
   }
 }
