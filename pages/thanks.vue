@@ -13,7 +13,7 @@ export default Vue.extend({
 })
 </script>
 
-<style module lang='scss'>
+<style module>
 .container {
   width: 300px;
   height: 66px;
@@ -33,6 +33,5 @@ export default Vue.extend({
 }
 
 .subtitle {
-
 }
 </style>

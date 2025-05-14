@@ -18,8 +18,8 @@ export default Vue.extend({
 })
 </script>
 
-<style module lang='scss'>
-@import '@/assets/styles/index.scss';
+<style module>
+@import '../assets/styles/index.css';
 
 .container {
   transition: 70ms ease-in-out;
@@ -47,28 +47,28 @@ export default Vue.extend({
   margin-top: 31px;
   float: right;
   text-transform: uppercase;
-  color: $text-nav;
+  color: var(--text-nav);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 2.6px;
   margin-left: 38px;
   cursor: pointer;
   transition: 100ms all;
-
-  &:hover {
-    color: $color-primary;
-  }
-
-  &.active {
-    color: $color-primary;
-    border-bottom: 2px solid #241b12;
-    padding-bottom: 6px;
-    position: relative;
-    bottom: 2px;
-  }
 }
 
-@media (max-width: $mobile) {
+.link:hover {
+  color: var(--color-primary);
+}
+
+.link.active {
+  color: var(--color-primary);
+  border-bottom: 2px solid #241b12;
+  padding-bottom: 6px;
+  position: relative;
+  bottom: 2px;
+}
+
+@media (max-width: 800px) {
   .container {
     padding-right: 20px;
   }

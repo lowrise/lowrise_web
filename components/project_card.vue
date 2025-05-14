@@ -25,18 +25,16 @@ export default Vue.extend({
 })
 </script>
 
-<style module lang='scss'>
-@import '@/assets/styles/index.scss';
+<style module>
+@import '../assets/styles/index.css';
 
 .container {
   width: 100%;
   position: relative;
+}
 
-  &:hover {
-    .title {
-      color: $color-link;
-    }
-  }
+.container:hover .title {
+  color: var(--color-link);
 }
 
 .thumbnail {
@@ -51,7 +49,7 @@ export default Vue.extend({
   letter-spacing: 2.9px;
   font-size: 14px;
   margin-bottom: 13px;
-  color: $color-primary;
+  color: var(--color-primary);
   transition: 100ms all;
 }
 
@@ -59,6 +57,6 @@ export default Vue.extend({
   text-transform: uppercase;
   letter-spacing: 1.5px;
   font-size: 12px;
-  color: $color-secondary;
+  color: var(--color-secondary);
 }
 </style>

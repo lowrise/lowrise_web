@@ -70,35 +70,39 @@ export default Vue.extend({
 })
 </script>
 
-<style module lang='scss'>
-@import '@/assets/styles/index.scss';
+<style module>
+@import "../../assets/styles/index.css";
 
 .container {
-  @media (max-width: $mobile) {
+}
+
+@media (max-width: 800px) {
+  .container {
     padding: 0 20px;
   }
 }
 
 .projectPage {
-  background: $color-page-bg;
+  background: var(--color-page-bg);
   margin-bottom: 270px;
   padding: 80px 30px 100px;
   z-index: 200;
   position: relative;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}
 
-  @media (max-width: $mobile) {
+@media (max-width: 800px) {
+  .projectPage {
     padding: 0;
   }
 }
 
-
-// Header
-
 .topContainer {
   padding: 60px 0 160px;
+}
 
-  @media (max-width: $mobile) {
+@media (max-width: 800px) {
+  .topContainer {
     padding: 40px 20px 0;
   }
 }
@@ -107,8 +111,10 @@ export default Vue.extend({
   float: left;
   width: 30%;
   margin-right: 5%;
+}
 
-  @media (max-width: $mobile) {
+@media (max-width: 800px) {
+  .projectInfo {
     width: 100%;
   }
 }
@@ -117,8 +123,10 @@ export default Vue.extend({
   font-size: 36px;
   font-weight: 600;
   line-height: 40px;
+}
 
-  @media (max-width: $mobile) {
+@media (max-width: 800px) {
+  .projectInfoTitle {
     font-size: 26px;
   }
 }
@@ -129,8 +137,10 @@ export default Vue.extend({
   color: #96918d;
   letter-spacing: 2px;
   font-size: 13px;
+}
 
-  @media (max-width: $mobile) {
+@media (max-width: 800px) {
+  .projectInfoType {
     font-size: 12px;
   }
 }
@@ -139,19 +149,21 @@ export default Vue.extend({
   padding-top: 14px;
   padding-bottom: 32px;
   margin: 0;
+}
 
-  @media (max-width: $mobile) {
-    p {
-      font-size: 14px;
-    }
+@media (max-width: 800px) {
+  .projectInfoDescription p {
+    font-size: 14px;
   }
 }
 
 .projectInfoImage {
   width: 65%;
   float: right;
+}
 
-  @media (max-width: $mobile) {
+@media (max-width: 800px) {
+  .projectInfoImage {
     width: 100%;
     float: left;
     margin-bottom: 20px;
@@ -159,16 +171,14 @@ export default Vue.extend({
 }
 
 .backButton {
-  color: $color-link;
+  color: var(--color-link);
   font-weight: 600;
   font-size: 15px;
   position: relative;
+}
 
-  &:hover {
-    .backButtonIcon {
-      transform: translateX(-2px);
-    }
-  }
+.backButton:hover .backButtonIcon {
+  transform: translateX(-2px);
 }
 
 .backButtonIcon {
@@ -181,11 +191,11 @@ export default Vue.extend({
   transition: 100ms all;
 }
 
-
-// Main
-
 .imageContainer {
-  @media (max-width: $mobile) {
+}
+
+@media (max-width: 800px) {
+  .imageContainer {
     padding: 40px 20px 0;
   }
 }
@@ -193,11 +203,11 @@ export default Vue.extend({
 .projectImage {
   margin-bottom: 40px;
   width: 100%;
+}
 
-  img {
-    width: 100%;
-    height: auto;
-  }
+.projectImage img {
+  width: 100%;
+  height: auto;
 }
 
 .projectSubtitle {
@@ -216,12 +226,9 @@ export default Vue.extend({
 .projectCaption {
   text-align: center;
   padding: 16px 0 20px;
-  color: rgb(120,120,120);
+  color: rgb(120, 120, 120);
   font-size: 15px;
 }
-
-
-// Footer
 
 .footer {
   z-index: 100;
@@ -236,54 +243,53 @@ export default Vue.extend({
   width: 50%;
   height: 150px;
   padding: 0 40px;
+}
 
-  img {
-    float: left;
-    height: 100%;
-  }
+.footerBlock img {
+  float: left;
+  height: 100%;
+}
 
-  .btn:hover {
-    color: #448EB5;
-    .arrow-right {
-      transform: translateX(4px);
-    }
-  }
+.footerBlock .btn:hover {
+  color: #448EB5;
+}
 
-  .project-footer-subtitle {
-    float: left;
-    font-size: 15px;
-    color: $color-secondary;
-    clear: both;
-  }
+.footerBlock .btn:hover .arrow-right {
+  transform: translateX(4px);
+}
+
+.footerBlock .project-footer-subtitle {
+  float: left;
+  font-size: 15px;
+  color: var(--color-secondary);
+  clear: both;
 }
 
 .footerBlockleft {
-  border-right: 1px solid rgb(242,242,242);
-
-  .btn-big {
-    line-height: 150px;
-    float: right;
-  }
+  border-right: 1px solid rgb(242, 242, 242);
 }
 
-.footerBlockRight {
-  .element {
-    position: absolute;
-    top: 50%;
-  }
-
-  .inner {
-    height: 62px;
-    position: relative;
-    top: -32px;
-
-    .btn-big {
-      margin: 5px 0 0 28px;
-    }
-  }
+.footerBlockleft .btn-big {
+  line-height: 150px;
+  float: right;
 }
 
-@media (max-width: $mobile) {
+.footerBlockRight .element {
+  position: absolute;
+  top: 50%;
+}
+
+.footerBlockRight .inner {
+  height: 62px;
+  position: relative;
+  top: -32px;
+}
+
+.footerBlockRight .inner .btn-big {
+  margin: 5px 0 0 28px;
+}
+
+@media (max-width: 800px) {
   .container {
     padding: 0 0 0;
   }

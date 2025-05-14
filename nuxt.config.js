@@ -19,9 +19,6 @@ export default {
   css: [
     '@/assets/styles/index',
   ],
-  styleResources: {
-    scss: ['@/assets/styles/index.scss'],
-  },
   plugins: [
     '@/plugins/gtag',
     '@/plugins/contentful',
@@ -31,9 +28,6 @@ export default {
   build: {
     publicPath: '/_static/',
     extractCSS: true,
-    sassOptions: {
-      fiber: false,
-    },
     loaders: {
       cssModules: {
         modules: {
