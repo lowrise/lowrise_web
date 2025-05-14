@@ -5,7 +5,7 @@ on:
     types: ['contentful.deploy']
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -29,12 +29,12 @@ jobs:
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
   deploy:
-    needs: build-and-deploy
+    needs: build
     runs-on: ubuntu-latest
     permissions:
       pages: write
