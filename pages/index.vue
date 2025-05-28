@@ -102,7 +102,10 @@ export default Vue.extend({
 /* Hero */
 
 .hero {
-  background: black;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .heroImage {
@@ -110,6 +113,7 @@ export default Vue.extend({
   background-position: 50% 50%;
   height: 700px;
   width: 100%;
+  max-width: 1000px;
 }
 
 @media (max-width: 800px) {
