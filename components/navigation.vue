@@ -3,7 +3,7 @@
     <div class="width-site">
       <a href="/" :class="$style.logo" />
       <a href="/#contact" :class="$style.link">contact</a>
-      <a href="/#practise" :class="[$style.link, $style.hideOnMobile]">practise</a>
+      <a href="/#practise" :class="[$style.link, $style.hideOnMobile]">practice</a>
       <a href="/#commerical" :class="[$style.link, $style.hideOnMobile]">commercial</a>
       <a href="/#residential" :class="[$style.link, $style.hideOnMobile]">residential</a>
     </div>

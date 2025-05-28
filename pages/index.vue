@@ -33,7 +33,7 @@
       </div>
 
       <div :class="$style.section" class="width-site" id="practise">
-        <div :class="$style.sectionTitle">Practise</div>
+        <div :class="$style.sectionTitle">Practice</div>
         <div class="width-site">
           <div
             :class="$style.practiceDescription"
@@ -52,14 +52,6 @@
                 <td>
                   <div class="font-sc">021 205 6478</div>
                   <a href="mailto:geoff@lowrise.co.nz" target="_blank">geoff@lowrise.co.nz</a>
-                </td>
-              </tr>
-              <tr>
-                <td>Visit us</td>
-                <td>
-                  56 Heriot Row
-                  <br />
-                  Dunedin 9016
                 </td>
               </tr>
             </tbody>
