@@ -109,7 +109,7 @@ export default Vue.extend({
 
 .projectInfo {
   float: left;
-  width: 30%;
+  width: 40%;
   margin-right: 5%;
 }
 
@@ -158,7 +158,7 @@ export default Vue.extend({
 }
 
 .projectInfoImage {
-  width: 65%;
+  width: 55%;
   float: right;
 }
 
